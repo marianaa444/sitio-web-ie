@@ -1,127 +1,139 @@
-@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"); /* Importa la fuente 'silk screen' */
 
-*, html { /* Aplica a todos los elementos y al elemento html */
-  box-sizing: border-box; /* Incluye padding y border en el tamaño total */
-  font-family: 'silkscreen-regular', 'silkscreen-bold'; /* Define 'silk screen' como la fuente base */
+body, html { 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #003CE5;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+    min-height: 100vh; /* Permitir que el contenido expanda verticalmente */
 }
 
-html, body { /* Estilos para el html y el body */
-    margin: 0; /* Elimina el margen por defecto */
-    padding: 0; /* Elimina el padding por defecto */
-    background-color: hsl(0, 0%, 100%); /* Fondo claro */
+/* Contenedor principal */
+main {
+    position: relative;
+    z-index: 1; /* Para que el contenido esté sobre el fondo animado */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Cambiado a center, o usa flex-start si deseas alinear a la izquierda */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    color: #fff; /* Asegura que el texto sea legible sobre el fondo */
+    padding: 40px 0; /* Añadido padding para crear espacio alrededor */
 }
 
-main { /* Estilo para el elemento main */
-    display: grid; /* Activa el grid layout */
-    grid-template-columns: 1fr 2fr; /* Define dos columnas con proporciones 1:2 */
-    grid-template-rows: auto auto; /* Define dos filas de altura automática */
-    margin-left: 50px; /* Márgen izquierdo de 50px */
-    margin-right: 40px; /* Márgen derecho de 50px */
-    column-gap: 20px; /* Espacio entre columnas de 20px */
-    grid-template-areas: /* Define áreas específicas dentro del grid */
-        "title title" /* Título ocupa ambas columnas */
-        "contenido proyectos"; /* Contenido y proyectos ocupan cada una una columna */
+/* Centrar el título */
+.title {
+    position: relative;
+    text-align: center;
+    margin: 40px 0 40px; /* Aumentado el margen superior a 60px y mantenido el inferior en 40px */
+    width: 100%; /* Ocupa todo el ancho */
 }
 
-#left { /* Estilo para el elemento con id left */
-    padding: 30px; /* Padding de 30px en todos los lados */
-    padding-top: 0; /* Sin padding en la parte superior */
-    grid-area: contenido; /* Asigna este elemento al área 'contenido' */
+.title h1 {
+    position: relative;
+    font-size: 48px;
+    font-family: 'Arial', sans-serif;
+    color: #FFDE00;
+    z-index: 1;
+    margin: 0;
+    padding: 20px 40px;
+    -webkit-text-stroke: 1px black;
 }
 
-#right { /* Estilo para el elemento con id right */
-    padding: 30px; /* Padding de 30px en todos los lados */
-    padding-top: 0; /* Sin padding en la parte superior */
-    grid-area: proyectos; /* Asigna este elemento al área 'proyectos' */
+/* Elipse detrás del título */
+.title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 200px;
+    background-color: #FF00FF;
+    border-radius: 50%;
+    z-index: 0;
 }
 
-h1 { /* Estilo para el título h1 */
-    font-size: 4em; /* Tamaño de fuente grande (4em) */
-    font-weight: bold; /* Fuente en negrita */
-    color: #a91212; /* Color naranja */
+/* Contenedor de contenido de texto */
+.content {
+    text-align: center;
+    margin-bottom: 40px; /* Aumentado el espacio debajo del contenido */
+    width: 100%;
 }
 
-h2 { /* Estilo para subtítulos h2 */
-    font-size: 1.5em; /* Tamaño de fuente mediano (1.5em) */
+.content p {
+    font-size: 18px;
+    margin: 50px 0 70px;
+    color: white;
 }
 
-p { /* Estilo para párrafos p */
-    font-size: 18px; /* Tamaño de fuente de 18px */
+/* Botón */
+button {
+    position: relative;
+    padding: 10px 40px;
+    margin: 5px 0 20px;
+    font-size: 20px;
+    font-family: "Acme", sans-serif;
+    background-color: #00E142;
+    color: #FF00FF;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    outline: none;
+    -webkit-text-stroke: 1px black;
 }
 
-.title { /* Estilo para el elemento con clase title */
-    grid-area: title; /* Asigna este elemento al área 'title' */
-    padding-left: 30px; /* Padding izquierdo de 30px */
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    background-color: #00E142;
+    border-radius: 50%;
+    z-index: -1;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-.content { /* Estilo para el elemento con clase content */
-    padding: 0; /* Sin padding */
-    text-align: justify; /* Justifica el texto */
-    word-break: normal; /* Permite el corte de palabras natural */
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
-.proyectos { /* Estilo para el contenedor con clase proyectos */
-    display: grid; /* Activa el grid layout */
-    color: palevioletred;
-    grid-template-columns: 1fr 1fr ; /* Tres columnas iguales */
-    column-gap: 30px; /* Espacio entre columnas de 30px */
-    row-gap: 20px; /* Espacio entre filas de 20px */
-    height: 450px; /* Altura fija de 450px */
-    overflow-y: auto; /* Activa el scroll vertical si es necesario */
+/* Contenedor de imágenes con 2 filas de 4 imágenes */
+.image-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 imágenes por fila */
+    grid-gap: 20px; /* Espacio entre imágenes */
+    padding: 10px 0;
+    width: 100%;
+    max-width: 1000px; /* Ajusta el tamaño máximo del contenedor */
 }
 
-.proyectos nav { /* Estilo para el elemento nav dentro de .proyectos */
-    display: contents; /* Los hijos se comportan como si estuvieran directamente en el grid */
+.image-grid-container a {
+    display: block;
+    width: 100%;
+    padding-bottom: 100%; /* Proporción 1:1 para las imágenes cuadradas */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.proyectos a { /* Estilo para los enlaces dentro de .proyectos */
-    display: block; /* El enlace ocupa toda la columna */
+.image-grid-container a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-.proyectos nav a img { /* Estilo para las imágenes dentro de los enlaces en .proyectos */
-    width: 60%; /* Imágenes ocupan todo el ancho del contenedor */
-    border-radius: 10px; /* Bordes redondeados */
-    margin-bottom: 1ex; /* Margen inferior de 1ex */
-    border: 3px solid transparent; /* Borde de 3px invisible */
+/* Efecto al pasar el mouse sobre la imagen */
+.image-grid-container a:hover {
+    transform: scale(1.1); /* Agranda la imagen al pasar el mouse */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Bordes borrosos */
 }
-
-.proyectos nav a:hover img { /* Estilo hover para las imágenes en .proyectos */
-    filter: blur(5px); /* Desenfoque de 5px al pasar el ratón */
-    opacity: 90%; /* Reducción de la opacidad al 90% */
-    filter: drop-shadow(16px 16px 20px red) invert(75%);
-}
-
-button { /* Estilo para los botones */
-    border-radius: 0; /* Bordes redondeados */
-    padding: 10px 20px; /* Padding de 10px arriba y abajo, 20px a los lados */
-    background-color: rgb(230, 230, 230); /* Color de fondo gris claro */
-    font-size: 14px; /* Tamaño de fuente de 14px */
-    font-weight: bold; /* Texto en negrita */
-    color: #a91212; /* Texto naranja */
-    border: none; /* Sin borde */
-    cursor: pointer; /* Cursor de mano al pasar por encima */
-}
-
-button:hover { /* Estilo hover para los botones */
-    background-color: #a91212; /* Fondo cambia a naranja */
-    color: black; /* Texto cambia a negro */
-    font-weight: bold; /* Mantiene el texto en negrita */
-}
-
-@media (max-width: 900px) { /* Estilo responsivo para pantallas pequeñas */
-    main { /* Ajustes en el elemento main */
-        display: grid; /* Activa el grid layout */
-        grid-template-columns: 1fr; /* Una sola columna */
-        grid-template-rows: auto auto auto; /* Tres filas automáticas */
-        grid-template-areas: /* Reorganiza las áreas del grid */
-            "title" /* Título ocupa la primera fila */
-            "contenido" /* Contenido ocupa la segunda fila */
-            "proyectos"; /* Proyectos ocupa la tercera fila */
-        margin: 0 10px; /* Márgenes laterales reducidos a 10px */
-    }
-    
-    h1 { /* Ajustes en el título h1 */
-        font-size: 3em; /* Reduce el tamaño de fuente a 3em */
-    }
-}
-

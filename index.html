@@ -6,80 +6,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitio Web Imagen Escrita</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0902d4;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Cambiado a flex-start para que el contenido comience desde la parte superior */
+            overflow-x: hidden; /* Evitar scroll horizontal */
+            overflow-y: auto; /* Permitir scroll vertical */
+            min-height: 100vh; /* Permitir que el contenido expanda verticalmente */
+        }
+
+        /* Contenedor principal */
+        main {
+            position: relative;
+            z-index: 1; /* Para que el contenido esté sobre el fondo animado */
+            display: flex;
+            flex-direction: column; /* Cambiado para que el contenido se apile verticalmente */
+            align-items: center; /* Centra el contenido horizontalmente */
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px; /* Añadido margen para evitar que el contenido toque los bordes */
+            color: #fff; /* Asegura que el texto sea legible sobre el fondo */
+        }
+
+        /* Título y otros estilos */
+        .title {
+            font-family: "Acme", sans-serif;
+            text-align: center;
+            color: yellow;
+            margin-bottom: 20px; /* Añadido margen debajo del título */
+        }
+
+        /* Contenedor de las imágenes */
+        .image-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta el número de columnas automáticamente */
+            gap: 20px; /* Espacio entre imágenes */
+            padding: 10px 0;
+            width: 100%;
+            max-width: 1000px; /* Ajusta el tamaño máximo del contenedor */
+            margin-bottom: 20px; /* Añadido margen inferior para espacio adicional */
+        }
+
+        /* Estilo de los enlaces de las imágenes */
+        .image-grid-container a {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-grid-container a img {
+            width: 100%;
+            height: auto; /* Asegura que las imágenes mantengan su proporción */
+            border-radius: 8px;
+        }
+
+        /* Efecto al pasar el mouse sobre la imagen */
+        .image-grid-container a:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 
 <body>
     <!-- Contenedor principal -->
     <main>
-
-        <!-- Título principal -->
+        <!-- Título principal al centro -->
         <div class="title">
-            <h1>Proyectos Imagen Escrita</h1>
+            <h1 style="font-family: 'Jacquarda Bastarda 9', system-ui;">Sketches Artificiales</h1>
         </div>
 
-        <!-- Contenedor lado izquierdo de la página -->
-        <div id="left">
+        <!-- Contenedor con texto debajo del título -->
+        <div class="content">
+            <p>Este sitio es un centro de almacenamiento personal de trabajos realizados mediante p5.js, los cuales fueron realizados aplicando conocimientos vistos en clases junto a la ayuda de la inteligencia artificial para lograr el uso correcto de ellos. </p>
+            
 
-            <!-- Contenedor párrafos + botón -->
-            <div class="content">
-
-                <!-- párrafo -->
-                <p> Mi nombre es Mariana Loyola y voy en primer año de diseño.
-                </p>
-
-                <p>.......
-                </p>
-
-                <!-- botón -->
-                <a href="https://enlace-a-la-wiki.com" target="_blank">
-                    <button>Ver proyecto en la wiki</button>
-                </a>
-
-            </div>
+            <a href="https://wiki.ead.pucv.cl/Mariana_Loyola" target="_blank">
+                <button>Proyectos en wiki</button>
+            </a>
         </div>
 
-        <!-- Contenedor lado derecho de la página -->
-        <div id="right">
-
-            <!--Contenedor proyectos-->
-            <div class="proyectos">
-
-                <nav>
-
-                    <!--imagenes con enlace a sketch-->
-                    <a href="https://editor.p5js.org/mariaanaa/full/gp6hxSN76" target="_blank">
-                        <img src="img/img1.png"> Profundidad Cuadricular
-                    </a>
-                    <a href="https://editor.p5js.org/mariaanaa/full/B_3aIbE1m" target="_blank">
-                        <img src="img/img2.png"> Rebotes DVD
-                    </a>
-                    <a href="https://editor.p5js.org/mariaanaa/full/EbgdJsV_A" target="_blank">
-                        <img src="img/img3.png"> Diamante central
-                    </a>
-                    <a href="https://www.ejemplo.com" target="_blank">
-                        <img src="img/img8.png"> sketch 4
-                    </a>
-                    <a href="https://www.ejemplo.com" target="_blank">
-                        <img src="img/img8.png"> sketch 5
-                    </a>
-                    <a href="https://www.ejemplo.com" target="_blank">
-                        <img src="img/img8.png"> sketch 6
-                    </a>
-                    <a href="https://www.ejemplo.com" target="_blank">
-                        <img src="img/img8.png"> sketch 7
-                    </a>
-                    <a href="https://www.ejemplo.com" target="_blank">
-                        <img src="img/img8.png"> sketch 8
-                    </a>
-                    
-                </nav>
-
-            </div>
-
+        <!-- Contenedor de las imágenes en fila con scroll horizontal -->
+        <div class="image-grid-container">
+            <a href="https://editor.p5js.org/mariaanaa/full/gp6hxSN76" target="_blank">
+                <img src="img/img1.png" alt="Profundidad Cuadricular">
+            </a>
+            <a href="https://editor.p5js.org/mariaanaa/full/B_3aIbE1m" target="_blank">
+                <img src="img/img2.png" alt="Rebotes DVD">
+            </a>
+            <a href="https://editor.p5js.org/mariaanaa/full/EbgdJsV_A" target="_blank">
+                <img src="img/img3.png" alt="Diamante Central">
+            </a>
+            <a href="https://editor.p5js.org/mariaanaa/full/-Qrh5Q5cN" target="_blank">
+                <img src="img/img4.png" alt="Tunel a la Luz">
+            </a>
+            <a href="https://www.ejemplo.com" target="_blank">
+                <img src="img/img5.png" alt="Sketch 5">
+            </a>
+            <a href="https://www.ejemplo.com" target="_blank">
+                <img src="img/img6.png" alt="Sketch 6">
+            </a>
+            <a href="https://www.ejemplo.com" target="_blank">
+                <img src="img/img7.png" alt="Sketch 7">
+            </a>
+            <a href="https://www.ejemplo.com" target="_blank">
+                <img src="img/img8.png" alt="Sketch 8">
+            </a>
         </div>
-
     </main>
-
 </body>
 
 </html>
