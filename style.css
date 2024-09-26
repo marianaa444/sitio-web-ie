@@ -2,7 +2,7 @@
 body, html { 
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif,  "Acme", system-ui;;
     background-color: #003CE5;
     overflow-x: hidden; /* Evitar scroll horizontal */
     min-height: 100vh; /* Permitir que el contenido expanda verticalmente */
@@ -33,7 +33,7 @@ main {
 .title h1 {
     position: relative;
     font-size: 48px;
-    font-family: 'Arial', sans-serif;
+    font-family:  "Acme", system-ui;
     color: #FFDE00;
     z-index: 1;
     margin: 0;
@@ -50,7 +50,7 @@ main {
     transform: translate(-50%, -50%);
     width: 500px;
     height: 200px;
-    background-color: #FF00FF;
+    background-color: #FF00C7;
     border-radius: 50%;
     z-index: 0;
 }
@@ -74,9 +74,9 @@ button {
     padding: 10px 40px;
     margin: 5px 0 20px;
     font-size: 20px;
-    font-family: "Acme", sans-serif;
+    font-family:  "Acme", system-ui;
     background-color: #00E142;
-    color: #FF00FF;
+    color: #FF00C6;
     border: none;
     cursor: pointer;
     z-index: 1;
@@ -113,9 +113,6 @@ button:hover::before {
     max-width: 1000px; /* Ajusta el tamaño máximo del contenedor */
     margin: 0 auto; /* Centra el contenedor */
 }
-
-
-
 
 /* Efecto al pasar el mouse sobre la imagen */
 .image-grid-container a:hover {
