@@ -106,7 +106,7 @@ button:hover::before {
 /* Contenedor de imágenes con una fila de 8 imágenes */
 .image-grid-container {
     display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 8 imágenes por fila */
+    grid-template-columns: repeat(4, 1fr); /* 8 imágenes por fila */
     grid-gap: 10px; /* Espacio entre imágenes */
     padding: 10px 0;
     width: 100%;
